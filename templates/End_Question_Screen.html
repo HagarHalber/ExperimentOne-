@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instruction_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+     <div class="main">
+       <div class="row justify-content-center" >
+         <div class="card" style="margin-top: 10%">
+             <div class="card-header" >
+              <h1 style="color: cadetblue">Please answer the following questions</h1>
+             </div>
+             <div class="card-body">
+                <form action="/Thank_you" method="post">
+                        <label for="confident" class="col-form-label" style="font-weight:bold">How confident do you feel about your final prediction?</label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="confident">Not confident  1</label>
+                          <input class="form-check-input" type="radio" name="confident"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="confident">2</label>
+                          <input class="form-check-input" type="radio" name="confident"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="confident">3</label>
+                          <input class="form-check-input" type="radio" name="confident" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="confident">4</label>
+                          <input class="form-check-input" type="radio" name="confident"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="confident">5</label>
+                          <input class="form-check-input" type="radio" name="confident" value="5"/>
+                          <label class="form-check-label" for="confident"> Very confident</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="Quality" class="col-form-label" style="font-weight:bold">What was the quality of the explanation? </label><br>
+                        <div class="form-row justify-content-center">
+                         <div class="radio">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Quality">Low</label>
+                          <input class="form-check-input" type="radio" name="Quality"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Quality">2</label>
+                          <input class="form-check-input" type="radio" name="Quality"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Quality">3</label>
+                          <input class="form-check-input" type="radio" name="Quality" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Quality">4</label>
+                          <input class="form-check-input" type="radio" name="Quality"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Quality">5</label>
+                          <input class="form-check-input" type="radio" name="Quality" value="5"/>
+                          <label class="form-check-label" for="Quality">High</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Quality" value="0"/>
+                          <label class="form-check-label" for="Quality">Did not receive an explanation</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                  <label for="Length" class="col-form-label" style="font-weight:bold">How long was the explanation of the algorithm? </label><br>
+                        <div class="form-row justify-content-center">
+                         <div class="radio">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Length">Very short 1</label>
+                          <input class="form-check-input" type="radio" name="Length"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Length">2</label>
+                          <input class="form-check-input" type="radio" name="Length"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <label class="form-check-label" for="Length">3</label>
+                           <input class="form-check-input" type="radio" name="Length" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Length">4</label>
+                           <input class="form-check-input" type="radio" name="Length"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label" for="Length">5</label>
+                            <input class="form-check-input" type="radio" name="Length" value="5"/>
+                            <label class="form-check-label" for="Length">Very long</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Length" value="0"/>
+                          <label class="form-check-label" for="Length">Did not receive an explanation</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="Helpful" class="col-form-label" style="font-weight:bold">How helpful was the explanation of the algorithm?</label><br>
+                        <div class="form-row justify-content-center">
+                        <div class="radio">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Helpful">Not helpful 1</label>
+                          <input class="form-check-input" type="radio" name="Helpful"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Helpful">2</label>
+                          <input class="form-check-input" type="radio" name="Helpful"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Helpful">3</label>
+                          <input class="form-check-input" type="radio" name="Helpful" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Helpful">4</label>
+                          <input class="form-check-input" type="radio" name="Helpful"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Helpful">5</label>
+                          <input class="form-check-input" type="radio" name="Helpful" value="5"/>
+                          <label class="form-check-label" for="Helpful">Very helpful</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Helpful" value="0"/>
+                          <label class="form-check-label" for="Helpful">Did not receive an explanation</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="Motivation" class="col-form-label" style="font-weight:bold">Did you feel motivated to give an accurate forcast? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Motivation">Not at all 1</label>
+                          <input class="form-check-input" type="radio" name="Motivation"  value="1" />
+
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Motivation">2</label>
+                          <input class="form-check-input" type="radio" name="Motivation"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Motivation">3</label>
+                          <input class="form-check-input" type="radio" name="Motivation" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Motivation">4</label>
+                          <input class="form-check-input" type="radio" name="Motivation"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Motivation">5</label>
+                          <input class="form-check-input" type="radio" name="Motivation" value="5"/>
+                          <label class="form-check-label" for="Motivation">Yes ,very</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="Effort" class="col-form-label" style="font-weight:bold">How much effort did you put into completing the task? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">Not at all  1</label>
+                          <input class="form-check-input" type="radio" name="Effort"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">2</label>
+                          <input class="form-check-input" type="radio" name="Effort"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">3</label>
+                          <input class="form-check-input" type="radio" name="Effort" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">4</label>
+                          <input class="form-check-input" type="radio" name="Effort"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">5</label>
+                          <input class="form-check-input" type="radio" name="Effort" value="5"/>
+                          <label class="form-check-label" for="Effort"> All lot</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="information" class="col-form-label" style="font-weight:bold">How much information did you received during the experiment? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="information">Too little  1</label>
+                          <input class="form-check-input" type="radio" name="information"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="information">2</label>
+                          <input class="form-check-input" type="radio" name="information"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="Effort">3</label>
+                          <input class="form-check-input" type="radio" name="information" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="information">4</label>
+                          <input class="form-check-input" type="radio" name="information"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="information">5</label>
+                          <input class="form-check-input" type="radio" name="information" value="5"/>
+                          <label class="form-check-label" for="information"> Too much</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="difficult" class="col-form-label" style="font-weight:bold">To what extent did you find the task difficult? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="difficult">Very easy  1</label>
+                          <input class="form-check-input" type="radio" name="difficult"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="difficult">2</label>
+                          <input class="form-check-input" type="radio" name="difficult"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="difficult">3</label>
+                          <input class="form-check-input" type="radio" name="difficult" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="difficult">4</label>
+                          <input class="form-check-input" type="radio" name="difficult"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="difficult">5</label>
+                          <input class="form-check-input" type="radio" name="difficult" value="5"/>
+                          <label class="form-check-label" for="difficult"> Very hard</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="realistic" class="col-form-label" style="font-weight:bold">Was the task realistic? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="realistic">Not at all  1</label>
+                          <input class="form-check-input" type="radio" name="realistic"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="realistic">2</label>
+                          <input class="form-check-input" type="radio" name="realistic"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="realistic">3</label>
+                          <input class="form-check-input" type="radio" name="realistic" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="realistic">4</label>
+                          <input class="form-check-input" type="radio" name="realistic"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="realistic">5</label>
+                          <input class="form-check-input" type="radio" name="realistic" value="5"/>
+                          <label class="form-check-label" for="realistic"> Yes, very</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                        <label for="device" class="col-form-label" style="font-weight:bold">With which device did you preform the experiment with? </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="device">Laptop</label>
+                          <input class="form-check-input" type="radio" name="device"  value="Laptop" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="device">Smartphone</label>
+                          <input class="form-check-input" type="radio" name="device"  value="Smartphone" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="device">Tablet</label>
+                          <input class="form-check-input" type="radio" name="device" value="Tablet"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="device">Desktop computer</label>
+                          <input class="form-check-input" type="radio" name="device"  value="Desktop computer" />
+                        </div>
+                        </div>
+                        </div><br>
+
+                      <label for="privet" class="col-form-label" style="font-weight:bold">How would you describe the environment you are currently in?  </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="privet">Very privet 1</label>
+                          <input class="form-check-input" type="radio" name="privet"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="privet">2</label>
+                          <input class="form-check-input" type="radio" name="privet"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="privet">3</label>
+                          <input class="form-check-input" type="radio" name="privet" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="privet">4</label>
+                          <input class="form-check-input" type="radio" name="privet"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="privet">5</label>
+                          <input class="form-check-input" type="radio" name="privet"  value="5" />
+                          <label class="form-check-label" for="privet">Very public</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                      <label for="privet" class="col-form-label" style="font-weight:bold">How noisy is the environment you currently in?  </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="noise">Very quiet 1</label>
+                          <input class="form-check-input" type="radio" name="noise"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="noise">2</label>
+                          <input class="form-check-input" type="radio" name="noise"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="noise">3</label>
+                          <input class="form-check-input" type="radio" name="noise" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="noise">4</label>
+                          <input class="form-check-input" type="radio" name="noise"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="noise">5</label>
+                          <input class="form-check-input" type="radio" name="noise"  value="5" />
+                          <label class="form-check-label" for="noise">Very noisy</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                      <label for="knowledge" class="col-form-label" style="font-weight:bold">How would you rate your level of financial knowledge</label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="knowledge">Well below average 1 </label>
+                          <input class="form-check-input" type="radio" name="knowledge"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="knowledge">2 </label>
+                          <input class="form-check-input" type="radio" name="knowledge"  value="2" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="knowledge">3 </label>
+                          <input class="form-check-input" type="radio" name="knowledge" value="3"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="knowledge">4 </label>
+                          <input class="form-check-input" type="radio" name="knowledge"  value="4" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="knowledge">5 </label>
+                          <input class="form-check-input" type="radio" name="knowledge"  value="5" />
+                          <label class="form-check-label" for="knowledge"> Well above average</label>
+                        </div>
+                        </div>
+                        </div><br>
+
+                      <label for="privet" class="col-form-label" style="font-weight:bold">Choose your level of education: </label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="education">Less than high school</label>
+                          <input class="form-check-input" type="radio" name="education"  value="Less than high school" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="education">High school</label>
+                          <input class="form-check-input" type="radio" name="education"  value="High school" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="education">First degree</label>
+                          <input class="form-check-input" type="radio" name="education" value="First degree"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="education">Second degree</label>
+                          <input class="form-check-input" type="radio" name="education"  value="Second degree" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="education">PHD</label>
+                          <input class="form-check-input" type="radio" name="education"  value="PHD" />
+                        </div>
+                        </div>
+                        </div><br>
+
+                  <div class="form-group">
+                    <label for="Age" class="col-sm-4 col-form-label" style="font-weight:bold">What is your age?</label>
+                    <div class="col-sm-2">
+                      <input type="number" class="form-control" id="Age" name="Age" required>
+                    </div>
+                  </div>
+                   <label for="Gender" class="col-form-label" style="font-weight:bold">What is your gender?</label><br>
+                        <div class="form-row justify-content-center">
+                        <div class="radio">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Gender"  value="Female" />
+                          <label class="form-check-label" for="Gender">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Gender"  value="Male" />
+                          <label class="form-check-label" for="Gender">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Gender" value="Other"/>
+                          <label class="form-check-label" for="Gender">Other</label>
+                        </div>
+                        </div>
+                        </div>
+
+                      <label for="prize" class="col-form-label" style="font-weight:bold">What is the prize that the 3 participants with the most accurate predictions will receive?</label><br>
+                       <div class="form-row justify-content-center">
+                        <div class="radio" >
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="prize">$1</label>
+                          <input class="form-check-input" type="radio" name="prize"  value="1" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="prize">$3</label>
+                          <input class="form-check-input" type="radio" name="prize"  value="3" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="prize">$10</label>
+                          <input class="form-check-input" type="radio" name="prize" value="10"/>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label" for="prize">$30</label>
+                          <input class="form-check-input" type="radio" name="prize"  value="30" />
+                        </div>
+                        </div>
+                        </div><br>
+
+                  <div class="form-row justify-content-center">
+                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                  </div>
+                </form>
+             </div>
+         </div>
+       </div>
+     </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

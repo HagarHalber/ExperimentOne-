@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instruction_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-md">
+     <div class="main">
+        <div class="col d-flex justify-content-center" >
+            <div class="card" style="margin-top: 10%">
+            <div class="card-header" >
+              <h1 style="color: cadetblue">Instructions</h1>
+             </div>
+             <div class="card-body">
+                <p class="card-text ">In the following task, we will provide you with information about a specific stock at a specific time. Your task is to predict this stock price in exactly 7 days from the time presented in the graph.</p>
+                <p class="card-text ">First, you will be asked to make a prediction based on the information presented to you.</p>
+                <p class="card-text ">In the flowing screen, you will be asked to give a second prediction, on that screen we will provide you a prediction for the stock price exactly 7 days from the time presented in the graph from an AI algorithm designed to help investors predict stock pricing.  </p>
+                <p class="card-text ">You can choose whether to change your first prediction based on the algorithm's advice or not.</p>
+                {% if mt_type %}
+                 {% if mt_type == 1 %}
+                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 3 participants whose prediction is the most accurate will receive a $3 prize each.</strong></p><br><br>
+                 {% elif mt_type==2 %}
+                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 3 participants whose prediction is the most accurate will receive a $30 prize each.</strong></p><br><br>
+                  {% endif %}
+                {% endif %}
+                <p class="card-text ">Browsing back and forth is not possible. Therefore, please progress to the next page only when your answers are final.</p>
+                <p class="card-text ">Please do not use other browsers or web pages during the task.</p>
+                <p class="card-text ">At the end of this task, you will receive a verification code. Please copy the code and paste it as required in MTurk, to properly get paid for this task.</p>
+             </div>
+            <div class="row justify-content-center">
+                <form action="/First_Prediction" method="post">
+                    <div class="form-row justify-content-center">
+                    <button type="submit" class="btn btn-outline-info">Next Page</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+     </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

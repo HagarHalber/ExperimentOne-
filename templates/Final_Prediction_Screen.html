@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final_Prediction_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer type="text/javascript">
+        window.onload = function () {
+            OpenBootstrapPopup();
+        };
+        function OpenBootstrapPopup() {
+            $("#my_modal").modal('show');
+        }
+        function CloseBootstrapPopup() {
+           $("#my_modal").modal('hide');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+     <div class="main">
+        <div id="my_modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: orange">YOU CAN WIN A PRIZE!!</h5>
+                    </div>
+                    <div class="modal-body">
+                        The 3 participants whose prediction is the most accurate will receive a ${{ prize }} prize each.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-info" data-dismiss="modal" onclick="CloseBootstrapPopup()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" row" >
+            <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
+            <div class="card-header" >
+              <h1 style="color: cadetblue">Please fill your final forcast</h1>
+             </div>
+             <div>
+                 <img class="card-img-top" src="../static/Nvidia.png">
+             </div><br>
+             <div class="card-body">
+                <form action="/End_Question_Screen" method="post">
+                 <div class="form-row">
+                  <label class="form-control-label col-md-8" for="Final_pre">Please fill your forcast here: </label>
+                  <input type="number" class="form-control col-md-2" id="Final_pre" step="any" name="Final_pre" required placeholder="$000.00">
+                 </div><br>
+                 <div class="form-row justify-content-center">
+                  <button type="submit" class="btn btn-outline-info">Submit</button>
+                 </div>
+                </form>
+             </div>
+            </div>
+            <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
+            <div class="card-header" >
+              <h1 style="color: cadetblue">The Algorithm forcast</h1>
+             </div>
+             <div class="card-body">
+             <h3>The algorithm forcast of the stock's price 7 days from the time presented in the graph is: $195</h3><br>
+                {% if ex_num %}
+                 {% if ex_num == 1 %}
+                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <p class="justify-content-center">The forecast was made by an AI algorithm trained to analyze stock graphs,
+                     detect patterns, and make a financial analysis of the presented company. Nvidia Corporation is a multinational
+                     technology company that designs and produces graphics processing units (GPUs) and other related technologies
+                     with a market capitalization of $518B. The stock's graph indicates an uptrend starting in mid-Jun, and the
+                     Fibonacci ratios indicate that the stock has been trading in the 70%-100% range in recent weeks, indicating a
+                     strong position. Based on a triple-top pattern that emerged between May and September another such pattern was
+                     identified near the $208 price point, indicating that the stock may experience a decline to $195 per share before
+                     rebounding to the resistance point.</p>
+                 {% endif %}
+                 {% if ex_num == 2 %}
+                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <p class="justify-content-center">Nvidia Corporation is a multinational technology company that designs and produces
+                     graphics processing units (GPUs) and other related technologies. The company recently reported revenue of $16.7B,
+                     a 68% increase from the previous year, and a gross margin of 65.6%. The company's free cash flow is $6.67B and its
+                     earnings per share are 0.89. The algorithm analyzed the stock's behavior through the number of green and red candles
+                     on the graph and the changes in the stock line angles. Based on this analysis, the algorithm predicts that the stock
+                     price will experience a slight drop to $195 per share.</p>
+                 {% endif %}
+                 {% if ex_num == 3 %}
+                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <p class="justify-content-center">Nvidia Corporation is a multinational technology company that designs and produces graphics
+                     processing units (GPUs) and other related technologies. It has a significant market capitalization and recently reported
+                     strong financial results, including an increase in revenue. The company has expanded into a number of new markets in recent years,
+                     including the Data Center GPUs market, which includes deep learning and machine learning platforms. These efforts have contributed
+                     to the company's overall success and growth. In addition to its core businesses, Nvidia has also ventured into the automotive and
+                     visualization industries. These expansions have led to a significant increase in the company's operating income.
+                     The company's financial performance is reflected in its strong free cash flow and positive earnings per share.
+                     According to market analysis, the company's stock has shown an upward trend in recent months and has been trading at strong levels.
+                     However, there is a key resistance point that the stock has struggled to overcome in the past the algorithm analyzed the stock's behavior
+                     through the number of green and red candles on the graph and the changes in the stock line angles. Based on this analysis, the algorithm
+                     predicts that the stock price will experience a slight drop to $195 per share.</p>
+                 {% endif %}
+                 {% if ex_num == 4 %}
+                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <p>Nvidia Corporation is a multinational technology company that designs and produces graphics processing units (GPUs)
+                     and other related technologies with a market capitalization of $518B.Its most recent financial reports show revenue
+                     of $16.7B, a total revenue increase of 68% from the previous year, and a gross margin of 65.6%. The company has recently
+                     entered the Data Center GPUs market, which includes deep learning and machine learning platforms. Its revenue from this
+                     market has increased by $4.7B, or 41%, from the previous year. The algorithm has identified an overall upward trend in the
+                     stock starting in Jun, with the stock trading in the strong 70%-100% range according to Fibonacci ratios in recent weeks.
+                     There is a strong resistance point at 208$, which the stock reached for the first time in October. After this, there was a
+                     drop, followed by the stock reaching the 208$ point again, the same pattern emerged between May and September and was identified
+                     as triple-top therefore the algorithm predict a triple-top pattern at 208$. As the stock has reached the second top of this pattern,
+                     it is expected to drop before returning to the resistance point at 208$. Based on this information and the graph, the algorithm predicts a
+                     drop in price to 195$ per share.</p>
+                 {% endif %}
+                {% endif %}
+             </div>
+            </div>
+         </div>
+     </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Informed_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="main">
+     <div class="col d-flex justify-content-center" >
+       <div class="card" style="margin-top: 10%">
+        <div class="card-header" >
+         <h1 style="color: cadetblue">Informed Consent to Participate in a Study</h1>
+        </div>
+        <div class="card-body">
+           <p class="card-text">1. You are about to participate in a decision-making study.</p>
+           <p class="card-text">2. During the experiment you will be presented with several web pages and will be asked to answer several questions, </p>
+           <p class="card-text">   some of which are mandatory and others are not. </p>
+           <p class="card-text">3. Upon completion of the experiment, you will reach a completion page in which you will receive a verification code. </p>
+           <p class="card-text">   This code will verify that you completed the experiment in Amazon Mechanical Turk so that you will receive credit for this task.  </p>
+           <p class="card-text">4. Confidentiality as to the identity of each participant is guaranteed. It is impossible to connect the personal details of </p>
+           <p class="card-text">   the participant and the answers and data provided during the experiment. </p>
+           <p class="card-text">5. There is no time limit for completing the experiment, which should take about 10-15 minutes.</p>
+           <p class="card-text">6. The experiment has been approved by Ben-Gurion University’s ethics committee. </p>
+           <p class="card-text">7. You can raise any question about the experiment by sending an email to halber@post.bgu.ac.il. </p>
+        </div>
+        <div class="row justify-content-center">
+         <form action="/Instruction_screen" method="post">
+             <div class="form-group form-check">
+             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+             <label class="form-check-label" for="exampleCheck1" style="color: darkcyan">I hereby confirm that I have understood the above and freely give my consent to participate in this experiment </label>
+             </div>
+             <div class="form-row justify-content-center">
+             <button type="submit" class="btn btn-outline-info">Next</button>
+             </div>
+         </form>
+       </div>
+       </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
+
+

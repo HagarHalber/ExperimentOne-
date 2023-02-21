@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First_Prediction_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+    <body>
+    <div class="container">
+     <div class="main">
+        <div class="row d-flex justify-content-center" >
+            <div class="card" style="margin-top: 5%">
+            <div class="card-header" >
+              <h1 style="color: cadetblue">Nvidia Stock Graph</h1>
+             </div>
+              <div>
+               <img class="card-img-top" src="../static/Nvidia.png">
+              </div><br>
+             <div class="card-body">
+             <div class="row justify-content-center">
+                <form action="/Final_Prediction" method="post">
+                 <div class="form-row">
+                  <label class="form-control-label col-md-8" for="First_pre">Pleas fill your forcast here: </label>
+                  <input type="number" class="form-control col-md-2" id="First_pre" step="any" name="First_pre" required placeholder="$000.00" min="0">
+                 </div><br>
+                 <div class="form-row justify-content-center">
+                  <button type="submit" class="btn btn-outline-info">Submit</button>
+                 </div>
+                </form>
+            </div>
+            </div>     
+            </div>
+        </div>
+     </div>
+    </div>
+</body>
+</html>
+
+
