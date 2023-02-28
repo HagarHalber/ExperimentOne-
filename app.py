@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask import render_template
 from flask import redirect
@@ -118,5 +120,11 @@ def Thank_you():
     return render_template('Error.html')
 
 
+port = 80
+try:
+    port = os.environ['PORT']
+except:
+    pass
+
 if __name__ == '__main__':
-    app.run()
+    app.run(port=port)
