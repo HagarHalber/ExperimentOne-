@@ -82,7 +82,7 @@ def Final_Prediction():
                 if mt_num == 1:
                     prize = 3
                 else:
-                    prize = 30
+                    prize = 10
                 return render_template('Final_Prediction_Screen.html', ex_num=ex_num, prize=prize)
     return render_template('Error.html')
 
