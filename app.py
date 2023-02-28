@@ -7,8 +7,10 @@ from flask import url_for
 import random
 from flask import request, session, jsonify
 from datetime import timedelta
-from DB_file import dbManager
+# from DB_file import dbManager
+from DB_Postgre import dbManager
 from datetime import datetime
+import time
 
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
@@ -32,11 +34,11 @@ def Informed_func():
         if 'AmazonMT' in request.form:
             session['AmazonMT'] = request.form['AmazonMT']
             session['logedin'] = True
-            query = f"select * from ex_DATA where ID='%s'" % session['AmazonMT']
+            query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
             if len(query_result) == 0:
-                query = "INSERT INTO ex_DATA(ID,ex_type,motivation_type,first_prediction,final_prediction,in_time,end_time) VALUES (%s,%s,%s,%s,%s,%s,%s)" % (
-                    request.form['AmazonMT'], 0, 0, 0, 0, 0, 0)
+                query = "INSERT INTO \"ex_DATA\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES (%s,%s,%s,%s,%s,\'%s\',\'%s\')" % (
+                    request.form['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
                 print(dbManager.commit(query))
                 return render_template('Informed_Consent_Screen.html')
             else:
@@ -52,7 +54,7 @@ def Instruction():
         ex_num = random.choice(ex_list)
         mt_list = [1, 2]
         mt_num = random.choice(mt_list)
-        query = f"UPDATE ex_DATA set ex_type='%s', motivation_type='%s' where ID=%s" % (ex_num, mt_num, id)
+        query = f"UPDATE \"ex_DATA\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"=%s" % (ex_num, mt_num, id)
         dbManager.commit(query)
         return render_template('Instruction_screen.html', mt_type=mt_num)
     return render_template('Error.html')
@@ -70,10 +72,10 @@ def Final_Prediction():
             if session['AmazonMT']:
                 now = datetime.now()
                 First_pre = request.form['First_pre']
-                query = f"UPDATE ex_DATA set first_prediction='%s',in_time='%s' where ID=%s" % (
+                query = f"UPDATE \"ex_DATA\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"=%s" % (
                     First_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
-                query = f"select * from ex_DATA where ID='%s'" % session['AmazonMT']
+                query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
                 query_result = dbManager.fetch(query)
                 ex_num = query_result[0][1]
                 mt_num = query_result[0][2]
@@ -92,7 +94,7 @@ def End_Question():
             if session['AmazonMT']:
                 now = datetime.now()
                 Final_pre = request.form['Final_pre']
-                query = f"UPDATE ex_DATA set final_prediction='%s',end_time='%s' where ID=%s" % (
+                query = f"UPDATE \"ex_DATA\" set \"final_prediction\"='%s',\"end_time\"='%s' where \"ID\"=%s" % (
                     Final_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
                 return render_template('End_Question_Screen.html')
@@ -104,8 +106,8 @@ def Thank_you():
     if request.method == "POST":
         if 'Age' in request.form and 'Gender' in request.form and 'Length' in request.form and 'Quality' in request.form and 'Helpful' in request.form and 'Motivation' in request.form and 'Effort' in request.form and 'realistic' in request.form and 'device' in request.form and 'privet' in request.form and 'prize' in request.form and 'knowledge' in request.form and 'noise' in request.form:
             if session['AmazonMT']:
-                query = "INSERT INTO demographic_data(ID,ex_Length,Age,Gender,Quality,Helpful,Motivation,Effort," \
-                        "realistic,device,privet,prize,knowledge,noise,education,confident,information,difficulty) " \
+                query = "INSERT INTO \"demographic_data\"(\"ID\",\"ex_Length\",\"Age\",\"Gender\",\"Quality\",\"Helpful\",\"Motivation\",\"Effort\"," \
+                        "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\") " \
                         "VALUES (%s,%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s)" % (
                             session['AmazonMT'], request.form['Length'], request.form['Age'], request.form['Gender'],
                             request.form['Quality'], request.form['Helpful'], request.form['Motivation'],
