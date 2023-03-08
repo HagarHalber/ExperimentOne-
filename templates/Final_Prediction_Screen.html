@@ -28,7 +28,7 @@
                         <h5 class="modal-title" style="color: orange">YOU CAN WIN A PRIZE!!</h5>
                     </div>
                     <div class="modal-body">
-                        The 3 participants whose prediction is the most accurate will receive a ${{ prize }} prize each.
+                        The 10 participants whose prediction is the most accurate will receive a ${{ prize }} prize each.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-info" data-dismiss="modal" onclick="CloseBootstrapPopup()">Close</button>
@@ -97,7 +97,7 @@
             </div>
           <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
             <div class="card-header" >
-              <h1 style="color: cadetblue">Please fill your final prediction</h1>
+              <h1 style="color: cadetblue">Please fill your <strong>final</strong> prediction</h1>
              </div>
              <div>
                  <img class="card-img-top" src="../static/Nvidia.png">
@@ -105,7 +105,7 @@
              <div class="card-body">
                 <form action="/End_Question_Screen" method="post">
                  <div class="form-row">
-                  <label class="form-control-label col-md-8" for="Final_pre">What is your final prediction: </label>
+                  <label class="form-control-label col-md-8" for="Final_pre">Nvidia Stock Graph: </label>
                   <input type="number" class="form-control col-md-2" id="Final_pre" step="any" name="Final_pre" required placeholder="$000.00">
                  </div><br>
                  <div class="form-row justify-content-center">
