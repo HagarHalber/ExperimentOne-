@@ -54,7 +54,8 @@ def Instruction():
         ex_num = random.choice(ex_list)
         mt_list = [1, 2]
         mt_num = random.choice(mt_list)
-        query = f"UPDATE \"ex_DATA\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"=%s" % (ex_num, mt_num, id)
+        query = f"UPDATE \"ex_DATA\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"=%s" % (
+        ex_num, mt_num, id)
         dbManager.commit(query)
         return render_template('Instruction_screen.html', mt_type=mt_num)
     return render_template('Error.html')
@@ -62,7 +63,13 @@ def Instruction():
 
 @app.route('/First_Prediction', methods=['POST', 'GET'])
 def First_Prediction():
-    return render_template('First_Prediction_Screen.html')
+    if session['AmazonMT']:
+        id = session['AmazonMT']
+        start_time = datetime.now()
+        query = "INSERT INTO \"Duration\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES (%s,\'%s\',\'%s\')" % (
+            id, start_time, datetime.now())
+        dbManager.commit(query)
+        return render_template('First_Prediction_Screen.html')
 
 
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
@@ -75,6 +82,9 @@ def Final_Prediction():
                 query = f"UPDATE \"ex_DATA\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"=%s" % (
                     First_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
+                query_D = f"UPDATE \"Duration\" set \"first_p_endtime\"='%s' where \"ID\"=%s" % (
+                    now, session['AmazonMT'])
+                dbManager.commit(query_D)
                 query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
                 query_result = dbManager.fetch(query)
                 ex_num = query_result[0][1]
