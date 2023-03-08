@@ -66,7 +66,7 @@ def First_Prediction():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
-        query = "INSERT INTO \"Duration\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES (%s,\'%s\',\'%s\')" % (
+        query = "INSERT INTO \"First_P_Duration\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES (%s,\'%s\',\'%s\')" % (
             id, start_time, datetime.now())
         dbManager.commit(query)
         return render_template('First_Prediction_Screen.html')
@@ -82,7 +82,7 @@ def Final_Prediction():
                 query = f"UPDATE \"ex_DATA\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"=%s" % (
                     First_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
-                query_D = f"UPDATE \"Duration\" set \"first_p_endtime\"='%s' where \"ID\"=%s" % (
+                query_D = f"UPDATE \"First_P_Duration\" set \"first_p_endtime\"='%s' where \"ID\"=%s" % (
                     now, session['AmazonMT'])
                 dbManager.commit(query_D)
                 query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
