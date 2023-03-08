@@ -39,32 +39,13 @@
         <div class=" row" >
             <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
             <div class="card-header" >
-              <h1 style="color: cadetblue">Please fill your final forcast</h1>
-             </div>
-             <div>
-                 <img class="card-img-top" src="../static/Nvidia.png">
-             </div><br>
-             <div class="card-body">
-                <form action="/End_Question_Screen" method="post">
-                 <div class="form-row">
-                  <label class="form-control-label col-md-8" for="Final_pre">Please fill your forcast here: </label>
-                  <input type="number" class="form-control col-md-2" id="Final_pre" step="any" name="Final_pre" required placeholder="$000.00">
-                 </div><br>
-                 <div class="form-row justify-content-center">
-                  <button type="submit" class="btn btn-outline-info">Submit</button>
-                 </div>
-                </form>
-             </div>
-            </div>
-            <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
-            <div class="card-header" >
-              <h1 style="color: cadetblue">The Algorithm forcast</h1>
+              <h1 style="color: cadetblue">The AI prediction</h1>
              </div>
              <div class="card-body">
-             <h3>The algorithm forcast of the stock's price 7 days from the time presented in the graph is: $195</h3><br>
+             <h3>The AI prediction of the stock's price 7 days from the time presented in the graph is: $195</h3><br>
                 {% if ex_num %}
                  {% if ex_num == 1 %}
-                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <h3>The AI-generated explanation for the prediction above: </h3>
                  <p class="justify-content-center">The forecast was made by an AI algorithm trained to analyze stock graphs,
                      detect patterns, and make a financial analysis of the presented company. Nvidia Corporation is a multinational
                      technology company that designs and produces graphics processing units (GPUs) and other related technologies
@@ -75,7 +56,7 @@
                      rebounding to the resistance point.</p>
                  {% endif %}
                  {% if ex_num == 2 %}
-                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <h3>The AI-generated explanation for the prediction above::</h3>
                  <p class="justify-content-center">Nvidia Corporation is a multinational technology company that designs and produces
                      graphics processing units (GPUs) and other related technologies. The company recently reported revenue of $16.7B,
                      a 68% increase from the previous year, and a gross margin of 65.6%. The company's free cash flow is $6.67B and its
@@ -84,7 +65,7 @@
                      price will experience a slight drop to $195 per share.</p>
                  {% endif %}
                  {% if ex_num == 3 %}
-                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <h3>The AI-generated explanation for the prediction above:</h3>
                  <p class="justify-content-center">Nvidia Corporation is a multinational technology company that designs and produces graphics
                      processing units (GPUs) and other related technologies. It has a significant market capitalization and recently reported
                      strong financial results, including an increase in revenue. The company has expanded into a number of new markets in recent years,
@@ -98,7 +79,7 @@
                      predicts that the stock price will experience a slight drop to $195 per share.</p>
                  {% endif %}
                  {% if ex_num == 4 %}
-                 <h3>The algorithm explanation for the above forcast:</h3>
+                 <h3>The AI-generated explanation for the prediction above:</h3>
                  <p>Nvidia Corporation is a multinational technology company that designs and produces graphics processing units (GPUs)
                      and other related technologies with a market capitalization of $518B.Its most recent financial reports show revenue
                      of $16.7B, a total revenue increase of 68% from the previous year, and a gross margin of 65.6%. The company has recently
@@ -112,6 +93,25 @@
                      drop in price to 195$ per share.</p>
                  {% endif %}
                 {% endif %}
+             </div>
+            </div>
+          <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
+            <div class="card-header" >
+              <h1 style="color: cadetblue">Please fill your final prediction</h1>
+             </div>
+             <div>
+                 <img class="card-img-top" src="../static/Nvidia.png">
+             </div><br>
+             <div class="card-body">
+                <form action="/End_Question_Screen" method="post">
+                 <div class="form-row">
+                  <label class="form-control-label col-md-8" for="Final_pre">What is your final prediction: </label>
+                  <input type="number" class="form-control col-md-2" id="Final_pre" step="any" name="Final_pre" required placeholder="$000.00">
+                 </div><br>
+                 <div class="form-row justify-content-center">
+                  <button type="submit" class="btn btn-outline-info">Submit</button>
+                 </div>
+                </form>
              </div>
             </div>
          </div>
