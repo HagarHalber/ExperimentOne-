@@ -139,4 +139,4 @@ except:
     pass
 
 if __name__ == '__main__':
-    app.run(port=port, debug=False)
+    app.run(port=port, debug=True)
