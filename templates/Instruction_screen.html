@@ -17,13 +17,13 @@
                 <p class="card-text ">In the following task, we will provide you with information about a specific stock at a specific time. Your task is to predict this stock price in exactly 7 days from the time presented in the graph.</p>
                 <p class="card-text ">Please complete the following steps:</p>
                 <p class="card-text ">1. Give your first prediction of the stock price in exactly 7 days from the time presented.</p>
-                <p class="card-text ">2. Give your final prediction of the stock price in exactly 7 days from the time presented,<br><br> in addition to the graph we will provide you a prediction for the stock price exactly 7 days from the time <br><br> presented in the graph made by AI designed to help investors predict stock pricing. </p>
-                <p class="card-text ">** You can choose whether to change your first prediction based on the AI advice or not.</p>
+                <p class="card-text ">2. Give your final prediction of the stock price in exactly 7 days from the time presented, in addition to the graph we will provide you a prediction for the required day made by AI designed to help investors predict stock pricing. </p>
+                <p class="card-text "><strong>** You can choose whether to change your first prediction based on the AI prediction or not.</strong></p>
                 {% if mt_type %}
                  {% if mt_type == 1 %}
-                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 10 participants whose final prediction is the most accurate will receive a $1 prize each.</strong></p><br>
+                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 10 participants whose <strong>final prediction</strong> is the most accurate will receive a $1 prize each.</strong></p><br>
                  {% elif mt_type==2 %}
-                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 10 participants whose final prediction is the most accurate will receive a $10 prize each.</strong></p><br>
+                  <p class="card-text "><strong>You can win a prize for your performance in the experiment, the 10 participants whose <strong>final prediction</strong> is the most accurate will receive a $10 prize each.</strong></p><br>
                   {% endif %}
                 {% endif %}
                 <p class="card-text ">Browsing back and forth is not possible. Therefore, please progress to the next page only when your answers are final.</p>
