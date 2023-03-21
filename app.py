@@ -70,6 +70,7 @@ def First_Prediction():
             id, start_time, datetime.now())
         dbManager.commit(query)
         return render_template('First_Prediction_Screen.html')
+    return render_template('Error.html')
 
 
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
