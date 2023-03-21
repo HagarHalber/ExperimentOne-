@@ -14,7 +14,7 @@ import time
 
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=180)
 
 
 @app.route('/session')
