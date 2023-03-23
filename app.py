@@ -37,7 +37,7 @@ def Informed_func():
             query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
             if len(query_result) == 0:
-                query = "INSERT INTO \"ex_DATA\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES (%s,%s,%s,%s,%s,\'%s\',\'%s\')" % (
+                query = "INSERT INTO \"ex_DATA\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES ('%s',%s,%s,%s,%s,\'%s\',\'%s\')" % (
                     request.form['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
                 print(dbManager.commit(query))
                 return render_template('Informed_Consent_Screen.html')
@@ -54,7 +54,7 @@ def Instruction():
         ex_num = random.choice(ex_list)
         mt_list = [1, 2]
         mt_num = random.choice(mt_list)
-        query = f"UPDATE \"ex_DATA\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"=%s" % (
+        query = f"UPDATE \"ex_DATA\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"='%s'" % (
         ex_num, mt_num, id)
         dbManager.commit(query)
         return render_template('Instruction_screen.html', mt_type=mt_num)
@@ -66,7 +66,7 @@ def First_Prediction():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
-        query = "INSERT INTO \"First_P_Duration\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES (%s,\'%s\',\'%s\')" % (
+        query = "INSERT INTO \"First_P_Duration\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES ('%s',\'%s\',\'%s\')" % (
             id, start_time, datetime.now())
         dbManager.commit(query)
         return render_template('First_Prediction_Screen.html')
@@ -80,10 +80,10 @@ def Final_Prediction():
             if session['AmazonMT']:
                 now = datetime.now()
                 First_pre = request.form['First_pre']
-                query = f"UPDATE \"ex_DATA\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"=%s" % (
+                query = f"UPDATE \"ex_DATA\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"='%s'" % (
                     First_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
-                query_D = f"UPDATE \"First_P_Duration\" set \"first_p_endtime\"='%s' where \"ID\"=%s" % (
+                query_D = f"UPDATE \"First_P_Duration\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
                     now, session['AmazonMT'])
                 dbManager.commit(query_D)
                 query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
@@ -105,7 +105,7 @@ def End_Question():
             if session['AmazonMT']:
                 now = datetime.now()
                 Final_pre = request.form['Final_pre']
-                query = f"UPDATE \"ex_DATA\" set \"final_prediction\"='%s',\"end_time\"='%s' where \"ID\"=%s" % (
+                query = f"UPDATE \"ex_DATA\" set \"final_prediction\"='%s',\"end_time\"='%s' where \"ID\"='%s'" % (
                     Final_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
                 return render_template('End_Question_Screen.html')
@@ -119,7 +119,7 @@ def Thank_you():
             if session['AmazonMT']:
                 query = "INSERT INTO \"demographic_data\"(\"ID\",\"ex_Length\",\"Age\",\"Gender\",\"Quality\",\"Helpful\",\"Motivation\",\"Effort\"," \
                         "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\") " \
-                        "VALUES (%s,%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s)" % (
+                        "VALUES ('%s',%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s)" % (
                             session['AmazonMT'], request.form['Length'], request.form['Age'], request.form['Gender'],
                             request.form['Quality'], request.form['Helpful'], request.form['Motivation'],
                             request.form['Effort'], request.form['realistic'], request.form['device'],
