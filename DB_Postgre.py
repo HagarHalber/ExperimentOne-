@@ -5,9 +5,6 @@ class PostgreDBManager:
     __connection = None
     __cursor = None
 
-    def __init__(self):
-        self.__connect()
-
     def commit(self, query, args=()):
         # Use for INSERT UPDATE, DELETE statements.
         # Returns: The number of rows affected by the query (a non-negative int).
@@ -38,12 +35,11 @@ class PostgreDBManager:
     def __connect(self):
         # Opens a connection to the database.
         try:
-            if self.__connection is None:
-                self.__connection = psycopg2.connect(
-                    host="dpg-cfv2o2l3t39doavr2gsg-a.ohio-postgres.render.com",
-                    database="experiment1",
-                    user="root",
-                    password="tf7dK70hk7qsqeZGQgvC9YQhv6gQ1AgS")
+            self.__connection = psycopg2.connect(
+                host="dpg-cfv2o2l3t39doavr2gsg-a.ohio-postgres.render.com",
+                database="experiment1",
+                user="root",
+                password="tf7dK70hk7qsqeZGQgvC9YQhv6gQ1AgS")
             self.__cursor = self.__connection.cursor()
         except Exception as e:
             print(e)
@@ -61,9 +57,10 @@ class PostgreDBManager:
     def __close_connection(self):
         # Closes an open database connection.
         try:
-            # if self.__connection.is_connected():
-            #     self.__connection.close()
-            self.__cursor.close()
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()
+            if self.__cursor is not None:
+                self.__cursor.close()
         except Exception as error:
             print("Failed to close connection with error {}".format(error))
 

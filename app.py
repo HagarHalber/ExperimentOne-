@@ -14,7 +14,7 @@ import time
 
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=180)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10000)
 
 
 @app.route('/session')
@@ -36,9 +36,6 @@ def Informed_func():
             session['logedin'] = True
             query = f"select * from \"ex_DATA\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
-            query2 = f"select * from \"ex_DATA\" "
-            query_result2 = dbManager.fetch(query2)
-            print(query_result2)
             if len(query_result) == 0:
                 query = "INSERT INTO \"ex_DATA\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES (%s,%s,%s,%s,%s,\'%s\',\'%s\')" % (
                     request.form['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
