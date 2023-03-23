@@ -83,7 +83,7 @@ def Final_Prediction():
                 query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"='%s'" % (
                     First_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
-                query_D = f"UPDATE \"First_P_Duration\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
+                query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
                     now, session['AmazonMT'])
                 dbManager.commit(query_D)
                 query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
