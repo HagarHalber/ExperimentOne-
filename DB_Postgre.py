@@ -1,5 +1,6 @@
 import psycopg2
 
+# Fixed connection bug by reconnecting
 
 class PostgreDBManager:
     __connection = None
