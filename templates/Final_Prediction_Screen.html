@@ -42,11 +42,11 @@
               <h1 style="color: cadetblue">The AI prediction</h1>
              </div>
              <div class="card-body">
-             <h3>The AI prediction of the stock's price 7 days from the time presented in the graph is: $198</h3><br>
+             <h6>The AI prediction of the stock's price 7 days from the time presented in the graph is:<strong>$198</strong> </h6><br>
                 {% if ex_num %}
                  {% if ex_num == 1 %}
-                 <h3>The AI-generated explanation for the prediction above: </h3>
-                 <p class="justify-content-center">The prediction was made by an AI algorithm trained to analyze stock graphs,
+                 <h6>The AI generated the following explanation for this prediction: </h6>
+                 <p style="font-size: 20px" class="justify-content-center">The prediction was made by an AI algorithm trained to analyze stock graphs,
                      detect patterns, and make a financial analysis of the presented company. The stock's graph indicates an
                      uptrend starting in mid-Jun, and the Fibonacci ratios indicate that the stock has been trading in the 70%-100%
                      range in recent weeks, indicating a strong position. Based on a triple-top pattern that emerged between May
@@ -55,24 +55,24 @@
                  {% endif %}
                  {% if ex_num == 2 %}
                  <h3>The AI-generated explanation for the prediction above:</h3>
-                 <p class="justify-content-center">Based on a triple-top pattern that emerged between May and September,
+                 <p style="font-size: 20px" class="justify-content-center">Based on a triple-top pattern that emerged between May and September,
                      another pattern was identified near the $208 price point, indicating that the stock may experience a decline
                      to $198 per share before rebounding to the resistance point.</p>
                  {% endif %}
                  {% if ex_num == 3 %}
                  <h3>The AI-generated explanation for the prediction above:</h3>
-                 <p class="justify-content-center">Based on an analysis of historical data, the AI algorithm identified a decline in
-                     the stock price on corresponding dates from the previous year and an upward trend two years ago.
-                     The algorithm then computed the average stock price for the required day and generated multiple price options
-                     to determine the most accurate prediction of the stock price for the upcoming week. The AI system predicts
-                     a potential decline or an uptrend for the stock price next week. The optimal prediction suggests that the
-                     stock price may experience a slight drop to $198 per share.</p>
+                 <p style="font-size: 20px" class="justify-content-center">Stock market prediction is the act of trying to determine the future value of a
+                     company stock or other financial instrument traded on an exchange. The successful prediction of a stock's future
+                     price could yield significant profit. The efficient-market hypothesis suggests that stock prices reflect all
+                     currently available information and any price changes that are not based on newly revealed information thus
+                     are inherently unpredictable. Others believe they have methods and technologies which purportedly allow them
+                     to gain future price information. Therefore, the optimal prediction for the stock price is $198 per share.</p>
                  {% endif %}
                  {% if ex_num == 4 %}
                  <h3>The AI-generated explanation for the prediction above:</h3>
-                 <p>Based on an analysis of historical data, the AI algorithm identified a decline in the stock price on
-                     corresponding dates from the previous year and an upward trend two years ago. The optimal prediction
-                     suggests that the stock price may experience a slight drop to $198 per share.</p>
+                 <p style="font-size: 20px" class="justify-content-center">Stock market prediction is the act of trying to determine the future value of a company stock or other
+                     financial instrument traded on an exchange. Therefore, the optimal prediction for the stock price is
+                     $198 per share.</p>
                  {% endif %}
                 {% endif %}
              </div>
@@ -89,6 +89,7 @@
                  <div class="form-row">
                   <label class="form-control-label col-md-8" for="Final_pre" style="color: black;font-size: 20px">What is your <strong style="color: red">final</strong> prediction? </label>
                   <input type="number" class="form-control col-md-2" id="Final_pre" step="any" name="Final_pre" required placeholder="$000.00">
+                  <p>**Please predict the stock price 7 days from the time presented in the graph**</p>
                  </div><br>
                  <div class="form-row justify-content-center">
                   <button type="submit" class="btn btn-outline-info">Submit</button>
