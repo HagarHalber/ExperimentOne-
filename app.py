@@ -55,7 +55,7 @@ def Instruction():
         mt_list = [1, 2]
         mt_num = random.choice(mt_list)
         query = f"UPDATE \"main_table\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"='%s'" % (
-        ex_num, mt_num, id)
+            ex_num, mt_num, id)
         dbManager.commit(query)
         return render_template('Instruction_screen.html', mt_type=mt_num)
     return render_template('Error.html')
@@ -118,17 +118,18 @@ def Thank_you():
         if 'Age' in request.form and 'Gender' in request.form and 'Length' in request.form and 'Quality' in request.form and 'Helpful' in request.form and 'Motivation' in request.form and 'Effort' in request.form and 'realistic' in request.form and 'device' in request.form and 'privet' in request.form and 'prize' in request.form and 'knowledge' in request.form and 'noise' in request.form:
             if session['AmazonMT']:
                 query = "INSERT INTO \"Demographic_table\"(\"ID\",\"ex_Length\",\"Age\",\"Gender\",\"Quality\",\"Helpful\",\"Motivation\",\"Effort\"," \
-                        "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\") " \
-                        "VALUES ('%s',%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s)" % (
+                        "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\",\"prediction\") " \
+                        "VALUES ('%s',%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s,'%s')" % (
                             session['AmazonMT'], request.form['Length'], request.form['Age'], request.form['Gender'],
                             request.form['Quality'], request.form['Helpful'], request.form['Motivation'],
                             request.form['Effort'], request.form['realistic'], request.form['device'],
                             request.form['privet'],
                             request.form['prize'], request.form['knowledge'], request.form['noise'],
                             request.form['education'],
-                            request.form['confident'], request.form['information'], request.form['difficult'])
+                            request.form['confident'], request.form['information'], request.form['difficult'],
+                            request.form['prediction'])
                 dbManager.commit(query)
-                Amazon_code = session['AmazonMT']+"hagar"
+                Amazon_code = session['AmazonMT'] + "hagar"
                 return render_template('Thank_You_Screen.html', Amazon_code=Amazon_code)
     return render_template('Error.html')
 
