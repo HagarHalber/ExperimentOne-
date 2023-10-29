@@ -73,7 +73,7 @@ def First_Prediction():
     return render_template('Error.html')
 
 @app.route('/Select_Explanation', methods=['POST', 'GET'])
-def First_Prediction():
+def Select_Explanation():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
