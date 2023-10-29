@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final_Prediction_Screen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type = "text/javascript" >
+     function preventBack(){window.history.forward();}
+     setTimeout("preventBack()", 0);
+     window.onunload=function(){null};
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+     <div class="main">
+        <div class=" row" >
+            <div class="card justify-content-center col-md-6 " style="margin-top: 5%">
+             <div class="card-header" >
+              <h1 style="color: cadetblue">The AI prediction</h1>
+             <p style="font-size: 22px" >The AI prediction of the stock's price one month from the time presented in the graph is : <strong>$226</strong> </p><br>
+             </div>
+             <div class="card-body">
+               <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-header">
+                       <a class="close" data-dismiss="modal">×</a>
+                       <h4><span class="fa fa-search"></span> Search Anything...</h4>
+                    </div>
+                    <form name='searchdata' id="search_form" action="/Select_Explanation" method="get">
+                        <div class="input-with-icon success-control">
+                           <input type="text" class="form-control" id="form1Amount"     name="searchvalue" placeholder="Search in users or #hashtags"><br/>
+                        </div>
+                        <button onclick="form_submit()" name='user_search' value='user' class="btn btn-danger"><i class="fa fa-user"></i> Close</button>
+                    </form>
+
+                    <script type="text/javascript">
+                      function form_submit() {
+                      document.getElementById("search_form").submit(); }
+                    </script>
+                  </div>
+                </div>
+             </div>
+            </div>
+         </div>
+     </div>
+    </div>
+</body>
+</html>
+
+

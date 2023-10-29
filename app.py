@@ -72,6 +72,14 @@ def First_Prediction():
         return render_template('First_Prediction_Screen.html')
     return render_template('Error.html')
 
+@app.route('/Select_Explanation', methods=['POST', 'GET'])
+def Select_Explanation():
+    if session['AmazonMT']:
+        id = session['AmazonMT']
+        start_time = datetime.now()
+        return render_template('Select_Explanation_Screen.html.html')
+    return render_template('Error.html')
+
 
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
 def Final_Prediction():
