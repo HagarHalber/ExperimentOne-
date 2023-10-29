@@ -77,7 +77,7 @@ def Select_Explanation():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
-        return render_template('Select_Explanation_Screen.html.html')
+        return render_template('Select_Explanation_Screen.html')
     return render_template('Error.html')
 
 
