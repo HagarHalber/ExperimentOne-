@@ -77,6 +77,11 @@ def Select_Explanation():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
+        Ex_Type = request.form['user_search']
+        print(Ex_Type)
+        query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s',\'%s\','%s')" % (
+            id, start_time, 1)
+        dbManager.commit(query)
         return render_template('Select_Explanation.html')
     return render_template('Error.html')
 
