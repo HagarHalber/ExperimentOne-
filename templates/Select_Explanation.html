@@ -25,9 +25,11 @@
                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanation1">Launch demo modal</button>
                <div class="modal fade" id="explanation1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
+                   <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     </div>
+                    <div class="modal-body">
                     <form name='searchdata' id="search_form" action="/Select_Explanation" method="get">
                         <div class="input-with-icon success-control">
                           <p style="font-size: 20px" class="justify-content-center">The prediction was made by an AI algorithm trained to analyze stock graphs,
@@ -39,12 +41,13 @@
                         </div>
                         <button onclick="form_submit()" name='user_search' value='user' class="btn btn-danger"><i class="fa fa-user"></i> Close</button>
                     </form>
-
+                    </div>
                     <script type="text/javascript">
                       function form_submit() {
                       document.getElementById("search_form").submit(); }
                     </script>
                   </div>
+                 </div>
                 </div>
              </div>
             </div>
