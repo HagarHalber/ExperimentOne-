@@ -77,13 +77,27 @@ def Select_Explanation():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
+        First_pre = request.form['First_pre']
+        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"='%s'" % (
+            First_pre, start_time, id)
+        dbManager.commit(query)
+        query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
+            start_time, id)
+        dbManager.commit(query_D)
+        return render_template('Select_Explanation.html')
+    return render_template('Error.html')
+
+@app.route('/Select_Explanation_Update', methods=['POST', 'GET'])
+def Select_Explanation_Update():
+    if session['AmazonMT']:
+        id = session['AmazonMT']
+        start_time = datetime.now()
         Ex_Type = request.form['Ex_Type']
         query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s',\'%s\','%s')" % (
             id, start_time, Ex_Type)
         dbManager.commit(query)
         return render_template('Select_Explanation.html')
     return render_template('Error.html')
-
 
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
 def Final_Prediction():
