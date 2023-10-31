@@ -98,7 +98,7 @@ def Select_Explanation_Update():
         query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s',\'%s\','%s')" % (
             id, start_time, Ex_Type)
         dbManager.commit(query)
-        return render_template('Select_Explanation.html')
+        return render_template('Select_Explanation_Update.html')
     return render_template('Error.html')
 
 
@@ -108,13 +108,6 @@ def Final_Prediction():
         if 'First_pre' in request.form:
             if session['AmazonMT']:
                 now = datetime.now()
-                First_pre = request.form['First_pre']
-                query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"='%s'" % (
-                    First_pre, now, session['AmazonMT'])
-                dbManager.commit(query)
-                query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
-                    now, session['AmazonMT'])
-                dbManager.commit(query_D)
                 query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
                 query_result = dbManager.fetch(query)
                 ex_num = query_result[0][1]
