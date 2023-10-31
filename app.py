@@ -105,7 +105,6 @@ def Select_Explanation_Update():
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
 def Final_Prediction():
     if request.method == "POST":
-        if 'First_pre' in request.form:
             if session['AmazonMT']:
                 now = datetime.now()
                 query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
