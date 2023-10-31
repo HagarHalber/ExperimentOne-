@@ -72,6 +72,7 @@ def First_Prediction():
         return render_template('First_Prediction_Screen.html')
     return render_template('Error.html')
 
+
 @app.route('/Select_Explanation', methods=['POST', 'GET'])
 def Select_Explanation():
     if session['AmazonMT']:
@@ -87,9 +88,10 @@ def Select_Explanation():
         return render_template('Select_Explanation.html')
     return render_template('Error.html')
 
+
 @app.route('/Select_Explanation_Update', methods=['POST', 'GET'])
 def Select_Explanation_Update():
-    if session['AmazonMT']:
+    if session['AmazonMT'] and 'Ex_Type' in request.form:
         id = session['AmazonMT']
         start_time = datetime.now()
         Ex_Type = request.form['Ex_Type']
@@ -98,6 +100,7 @@ def Select_Explanation_Update():
         dbManager.commit(query)
         return render_template('Select_Explanation.html')
     return render_template('Error.html')
+
 
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
 def Final_Prediction():
