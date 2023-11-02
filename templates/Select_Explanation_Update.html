@@ -69,6 +69,75 @@
                   </div>
                  </div>
                 </div>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanation2">Short and detailed</button>
+               <div class="modal fade" id="explanation2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                    <div class="modal-body">
+                    <form name='searchdata' id="explanation2" action="/Select_Explanation_Update" method="post">
+                        <div class="input-with-icon success-control">
+                          <input type="hidden" class="form-control" id="Ex_Type" step="any" name="Ex_Type" value="Short and detailed" ><br>
+                          <p style="font-size: 20px" class="justify-content-center">Based on a triple-top pattern that emerged between May and September,
+                             another pattern was identified near the $208 price point, indicating that the stock may experience a decline after which
+                             the price is expected to rise to $226.</p>
+                        </div>
+                        <button onclick="form_submit()" name='user_search' value='user' class="btn btn-danger"><i class="fa fa-user"></i> Close</button>
+                    </form>
+                    </div>
+                    <script type="text/javascript">
+                      function form_submit() {
+                      document.getElementById("explanation2").submit(); }
+                    </script>
+                  </div>
+                 </div>
+                </div>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanation3">Long and general</button>
+               <div class="modal fade" id="explanation3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                    <div class="modal-body">
+                    <form name='searchdata' id="explanation3" action="/Select_Explanation_Update" method="post">
+                        <div class="input-with-icon success-control">
+                          <input type="hidden" class="form-control" id="Ex_Type" step="any" name="Ex_Type" value="Long and general" ><br>
+                          <p style="font-size: 20px" class="justify-content-center">Stock market prediction is the act of trying to determine the future value of a
+                             company stock or other financial instrument traded on an exchange. The successful prediction of a stock's future
+                             price could yield significant profit. The efficient-market hypothesis suggests that stock prices reflect all
+                             currently available information and any price changes that are not based on newly revealed information thus
+                             are inherently unpredictable. Others believe they have methods and technologies which purportedly allow them
+                             to gain future price information. Therefore, the optimal prediction for the stock price is $226 per share.</p>
+                        </div>
+                        <button onclick="form_submit()" name='user_search' value='user' class="btn btn-danger"><i class="fa fa-user"></i> Close</button>
+                    </form>
+                    </div>
+                    <script type="text/javascript">
+                      function form_submit() {
+                      document.getElementById("explanation2").submit(); }
+                    </script>
+                  </div>
+                 </div>
+                </div>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanation4">Short and general</button>
+               <div class="modal fade" id="explanation4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                    <div class="modal-body">
+                    <form name='searchdata' id="explanation4" action="/Select_Explanation_Update" method="post">
+                        <div class="input-with-icon success-control">
+                          <input type="hidden" class="form-control" id="Ex_Type" step="any" name="Ex_Type" value="Short and general" ><br>
+                          <p style="font-size: 20px" class="justify-content-center">Stock market prediction is the act of trying to determine the future value of a company stock or other
+                             financial instrument traded on an exchange. Therefore, the optimal prediction for the stock price is
+                             $226 per share.</p>
+                        </div>
+                        <button onclick="form_submit()" name='user_search' value='user' class="btn btn-danger"><i class="fa fa-user"></i> Close</button>
+                    </form>
+                    </div>
+                    <script type="text/javascript">
+                      function form_submit() {
+                      document.getElementById("explanation2").submit(); }
+                    </script>
+                  </div>
+                 </div>
+                </div>
              </div>
              <div class="card-footer bg-transparent border-success">
                   <form name='searchdata' id="explanation1" action="/Final_Prediction" method="post">
