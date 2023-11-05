@@ -12,19 +12,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<body>
+ <body>
     <div class="container">
      <div class="main">
         <div class="row d-flex justify-content-center" >
             <div class="card" style="margin-top: 5%">
-             <div class="card-header" >
-              <h1 style="color: cadetblue">The AI prediction</h1>
-             <p style="font-size: 22px" >The AI prediction of the stock's price one month from the time presented in the graph is : <strong>$226</strong> </p><br>
+            <div class="card-header" >
+              <h1 style="color: cadetblue">The Stock Graph</h1>
              </div>
+              <div>
+               <img style="size: A5" class="card-img-top" src="../static/Nvidia_Graph_Data.png">
+              </div><br>
              <div class="card-body">
-             <p style="font-size: 22px" >The AI generated the following explanations for this prediction,
-                             you can choose which explanation you would like to receive.
-                             You have to open at least one explanation before you can continue the experiment: </p><br>
+             <div class="row justify-content-center">
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation1">Long and detailed</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <div class="modal fade" id="explanation1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -74,7 +74,7 @@
                 </div>
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation3">Long and general</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <div class="modal fade" id="explanation3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+                  <div class="modal-dialog " role="document">
                    <div class="modal-content">
                     <div class="modal-body">
                     <form name='searchdata' id="explanation3" action="/Select_Explanation_Update" method="post">
@@ -119,9 +119,10 @@
                   </div>
                  </div>
                 </div>
-             </div>
             </div>
-         </div>
+            </div>
+            </div>
+        </div>
      </div>
     </div>
 </body>
