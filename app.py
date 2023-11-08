@@ -139,8 +139,8 @@ def Thank_you():
         if 'Age' in request.form and 'Gender' in request.form and 'Length' in request.form and 'Quality' in request.form and 'Helpful' in request.form and 'Motivation' in request.form and 'Effort' in request.form and 'realistic' in request.form and 'device' in request.form and 'privet' in request.form and 'prize' in request.form and 'knowledge' in request.form and 'noise' in request.form:
             if session['AmazonMT']:
                 query = "INSERT INTO \"Demographic_table\"(\"ID\",\"ex_Length\",\"Age\",\"Gender\",\"Quality\",\"Helpful\",\"Motivation\",\"Effort\"," \
-                        "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\",\"prediction\",\"Prediction_Price\",\"Assessment\",\"Understand\",\"Learn\") " \
-                        "VALUES ('%s',%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s,'%s','%s',%s,%s,%s)" % (
+                        "\"realistic\",\"device\",\"privet\",\"prize\",\"knowledge\",\"noise\",\"education\",\"confident\",\"information\",\"difficulty\",\"prediction\",\"Prediction_Price\",\"Assessment\",\"Understand\",\"Learn\",\"acceptance\") " \
+                        "VALUES ('%s',%s,%s,'%s',%s,%s,%s,%s,%s,'%s',%s,%s,%s,%s,'%s',%s,%s,%s,'%s','%s',%s,%s,%s,%s)" % (
                             session['AmazonMT'], request.form['Length'], request.form['Age'], request.form['Gender'],
                             request.form['Quality'], request.form['Helpful'], request.form['Motivation'],
                             request.form['Effort'], request.form['realistic'], request.form['device'],
@@ -149,7 +149,7 @@ def Thank_you():
                             request.form['education'],
                             request.form['confident'], request.form['information'], request.form['difficult'],
                             request.form['prediction'], request.form['prediction_price'], request.form['assessment'],
-                            request.form['understand'], request.form['learn'])
+                            request.form['understand'], request.form['learn'], request.form['acceptance'])
                 dbManager.commit(query)
                 Amazon_code = "9c89c414ad"
                 return render_template('Thank_You_Screen.html', Amazon_code=Amazon_code)
