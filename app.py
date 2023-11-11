@@ -112,7 +112,7 @@ def Final_Prediction():
                 ex_num = query_result[0][1]
                 mt_num = query_result[0][2]
                 if mt_num == 1:
-                    prize = 1
+                    prize = 0.5
                 else:
                     prize = 10
                 return render_template('Final_Prediction_Screen.html', ex_num=ex_num, prize=prize)
