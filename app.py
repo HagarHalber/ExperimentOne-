@@ -151,7 +151,7 @@ def Thank_you():
                             request.form['prediction'], request.form['prediction_price'], request.form['assessment'],
                             request.form['understand'], request.form['learn'], request.form['acceptance'])
                 dbManager.commit(query)
-                Amazon_code = "9c89c414ad"
+                Amazon_code = "2cc7082674"
                 return render_template('Thank_You_Screen.html', Amazon_code=Amazon_code)
     return render_template('Error.html')
 
