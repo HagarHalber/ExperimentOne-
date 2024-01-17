@@ -105,17 +105,19 @@ def Select_Explanation_Update():
 @app.route('/Final_Prediction', methods=['POST', 'GET'])
 def Final_Prediction():
     if request.method == "POST":
-            if session['AmazonMT']:
-                now = datetime.now()
-                query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
-                query_result = dbManager.fetch(query)
-                ex_num = query_result[0][1]
-                mt_num = query_result[0][2]
-                if mt_num == 1:
-                    prize = 0.5
-                else:
-                    prize = 10
-                return render_template('Final_Prediction_Screen.html', ex_num=ex_num, prize=prize)
+        if session['AmazonMT']:
+            now = datetime.now()
+            query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
+            query_result = dbManager.fetch(query)
+            ex_num = query_result[0][1]
+            mt_num = query_result[0][2]
+            if mt_num == 1:
+                prize = 0.5
+            else:
+                prize = 10
+            query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (now, id)
+            dbManager.commit(query)
+            return render_template('Final_Prediction_Screen.html', ex_num=ex_num, prize=prize)
     return render_template('Error.html')
 
 
