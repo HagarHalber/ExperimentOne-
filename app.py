@@ -112,9 +112,14 @@ def Final_Prediction():
     if request.method == "POST":
         if session['AmazonMT']:
             now = datetime.now()
+            if 'Ex_Type' in request.form:
+                Ex_Type = request.form['Ex_Type']
+                query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s'," \
+                        "\'%s\','%s')" % (
+                            session['AmazonMT'], now, Ex_Type)
+                dbManager.commit(query)
             query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
-            ex_num = query_result[0][1]
             mt_num = query_result[0][2]
             if mt_num == 1:
                 prize = 0.5
@@ -122,7 +127,7 @@ def Final_Prediction():
                 prize = 10
             query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (now, id)
             dbManager.commit(query)
-            return render_template('Final_Prediction_Screen.html', ex_num=ex_num, prize=prize)
+            return render_template('Final_Prediction_Screen.html', prize=prize)
     return render_template('Error.html')
 
 
