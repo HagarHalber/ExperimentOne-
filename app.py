@@ -76,9 +76,9 @@ def First_Prediction():
 def Select_Explanation():
     if session['AmazonMT']:
         start_time = datetime.now()
-        first_selection_list = [1, 2]
+        first_selection_list = [2]
         first_selection = random.choice(first_selection_list)
-        second_selection_list = [1, 2, 3, 4, 5]
+        second_selection_list = [5]
         second_selection = random.choice(second_selection_list)
         First_pre = request.form['First_pre']
         query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s' where \"ID\"='%s'" % (
