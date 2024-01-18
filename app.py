@@ -78,14 +78,19 @@ def Select_Explanation():
     if session['AmazonMT']:
         id = session['AmazonMT']
         start_time = datetime.now()
+        first_selection_list = [1, 2]
+        first_selection = random.choice(first_selection_list)
+        second_selection_list = [1, 2, 3, 4, 5]
+        second_selection = random.choice(second_selection_list)
         First_pre = request.form['First_pre']
-        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s' where \"ID\"='%s'" % (
-            First_pre, start_time, id)
+        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s' where \"ID\"='%s'" % (
+            First_pre, start_time, first_selection, second_selection, id)
         dbManager.commit(query)
         query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
             start_time, id)
         dbManager.commit(query_D)
-        return render_template('Select_Explanation.html')
+        return render_template('Select_Explanation.html', first_selection=first_selection,
+                               second_selection=second_selection)
     return render_template('Error.html')
 
 

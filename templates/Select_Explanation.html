@@ -15,6 +15,7 @@
  <body>
     <div class="container">
      <div class="main">
+       {% if first_selection == 1 %}
         <div class="row d-flex justify-content-center" >
             <div class="card col-md-8" style="margin-top: 2%">
             <div class="card-header" >
@@ -140,6 +141,15 @@
             </div>
             </div>
         </div>
+       {% endif %}
+       {% if first_selection == 2 %}
+          {% if second_selection == 1 %}
+          {% elif second_selection==2 %}
+          {% elif second_selection==3 %}
+          {% elif second_selection==4 %}
+          {% else %}
+          {% endif %}
+       {% endif %}
      </div>
     </div>
 </body>
