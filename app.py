@@ -114,9 +114,8 @@ def Final_Prediction():
             now = datetime.now()
             if 'Ex_Type' in request.form:
                 Ex_Type = request.form['Ex_Type']
-                query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s'," \
-                        "\'%s\','%s')" % (
-                            session['AmazonMT'], now, Ex_Type)
+                query = f"UPDATE \"main_table\" set \"Explanation_Type\"='%s' where \"ID\"='%s'" % (
+                    Ex_Type, id)
                 dbManager.commit(query)
             query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
