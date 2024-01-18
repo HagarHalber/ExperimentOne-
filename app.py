@@ -38,7 +38,7 @@ def Informed_func():
             query_result = dbManager.fetch(query)
             if len(query_result) == 0:
                 query = "INSERT INTO \"main_table\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES ('%s',%s,%s,%s,%s,\'%s\',\'%s\')" % (
-                    request.form['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
+                    session['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
                 print(dbManager.commit(query))
                 return render_template('Informed_Consent_Screen.html')
             else:
@@ -49,13 +49,12 @@ def Informed_func():
 @app.route('/Instruction_screen', methods=['POST', 'GET'])
 def Instruction():
     if session['AmazonMT']:
-        id = session['AmazonMT']
         ex_list = [1, 2, 3, 4, 5]
         ex_num = random.choice(ex_list)
         mt_list = [1, 2]
         mt_num = random.choice(mt_list)
         query = f"UPDATE \"main_table\" set \"ex_type\"='%s', \"motivation_type\"='%s' where \"ID\"='%s'" % (
-            ex_num, mt_num, id)
+            ex_num, mt_num, session['AmazonMT'])
         dbManager.commit(query)
         return render_template('Instruction_screen.html', mt_type=mt_num)
     return render_template('Error.html')
@@ -64,10 +63,10 @@ def Instruction():
 @app.route('/First_Prediction', methods=['POST', 'GET'])
 def First_Prediction():
     if session['AmazonMT']:
-        id = session['AmazonMT']
         start_time = datetime.now()
-        query = "INSERT INTO \"First_Duration_table\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES ('%s',\'%s\',\'%s\')" % (
-            id, start_time, datetime.now())
+        query = "INSERT INTO \"First_Duration_table\"(\"ID\",\"first_p_starttime\",\"first_p_endtime\") VALUES ('%s'," \
+                "\'%s\',\'%s\')" % (
+                    session['AmazonMT'], start_time, datetime.now())
         dbManager.commit(query)
         return render_template('First_Prediction_Screen.html')
     return render_template('Error.html')
@@ -76,7 +75,6 @@ def First_Prediction():
 @app.route('/Select_Explanation', methods=['POST', 'GET'])
 def Select_Explanation():
     if session['AmazonMT']:
-        id = session['AmazonMT']
         start_time = datetime.now()
         first_selection_list = [1, 2]
         first_selection = random.choice(first_selection_list)
@@ -84,10 +82,10 @@ def Select_Explanation():
         second_selection = random.choice(second_selection_list)
         First_pre = request.form['First_pre']
         query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s' where \"ID\"='%s'" % (
-            First_pre, start_time, first_selection, second_selection, id)
+            First_pre, start_time, first_selection, second_selection, session['AmazonMT'])
         dbManager.commit(query)
         query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
-            start_time, id)
+            start_time, session['AmazonMT'])
         dbManager.commit(query_D)
         return render_template('Select_Explanation.html', first_selection=first_selection,
                                second_selection=second_selection)
@@ -97,11 +95,10 @@ def Select_Explanation():
 @app.route('/Select_Explanation_Update', methods=['POST', 'GET'])
 def Select_Explanation_Update():
     if session['AmazonMT'] and 'Ex_Type' in request.form:
-        id = session['AmazonMT']
         start_time = datetime.now()
         Ex_Type = request.form['Ex_Type']
         query = "INSERT INTO \"Explanation_Select\"(\"ID\",\"Time\",\"Explanation_Type\") VALUES ('%s',\'%s\','%s')" % (
-            id, start_time, Ex_Type)
+            session['AmazonMT'], start_time, Ex_Type)
         dbManager.commit(query)
         return render_template('Select_Explanation_Update.html')
     return render_template('Error.html')
@@ -115,7 +112,7 @@ def Final_Prediction():
             if 'Ex_Type' in request.form:
                 Ex_Type = request.form['Ex_Type']
                 query = f"UPDATE \"main_table\" set \"Explanation_Type\"='%s' where \"ID\"='%s'" % (
-                    Ex_Type, id)
+                    Ex_Type, session['AmazonMT'])
                 dbManager.commit(query)
             query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
@@ -124,7 +121,7 @@ def Final_Prediction():
                 prize = 0.5
             else:
                 prize = 10
-            query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (now, id)
+            query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (now, session['AmazonMT'])
             dbManager.commit(query)
             return render_template('Final_Prediction_Screen.html', prize=prize)
     return render_template('Error.html')
