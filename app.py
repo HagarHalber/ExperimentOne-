@@ -37,8 +37,8 @@ def Informed_func():
             query = f"select * from \"main_table\" where \"ID\"='%s'" % session['AmazonMT']
             query_result = dbManager.fetch(query)
             if len(query_result) == 0:
-                query = "INSERT INTO \"main_table\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"in_time\",\"end_time\") VALUES ('%s',%s,%s,%s,%s,\'%s\',\'%s\')" % (
-                    session['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now())
+                query = "INSERT INTO \"main_table\"(\"ID\",\"ex_type\",\"motivation_type\",\"first_prediction\",\"final_prediction\",\"final_p_start\",\"final_p_end\",\"Explanation_Type\") VALUES ('%s',%s,%s,%s,%s,\'%s\',\'%s\',\'%s\')" % (
+                    session['AmazonMT'], 0, 0, 0, 0, datetime.now(), datetime.now(), "no explanation")
                 print(dbManager.commit(query))
                 return render_template('Informed_Consent_Screen.html')
             else:
@@ -81,8 +81,8 @@ def Select_Explanation():
         second_selection_list = [1, 2, 3, 4, 5]
         second_selection = random.choice(second_selection_list)
         First_pre = request.form['First_pre']
-        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s' where \"ID\"='%s'" % (
-            First_pre, start_time, first_selection, second_selection, session['AmazonMT'])
+        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"final_p_start\"='%s',\"first_selection\"='%s',\"second_selection\"='%s',\"Ex_start\"='%s' where \"ID\"='%s'" % (
+            First_pre, start_time, first_selection, second_selection, start_time, session['AmazonMT'])
         dbManager.commit(query)
         query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
             start_time, session['AmazonMT'])
@@ -121,7 +121,8 @@ def Final_Prediction():
                 prize = 0.5
             else:
                 prize = 10
-            query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (now, session['AmazonMT'])
+            query = f"UPDATE \"main_table\" set \"final_p_start\"='%s',\"Ex_end\"='%s' where \"ID\"='%s'" % (
+                now, now, session['AmazonMT'])
             dbManager.commit(query)
             return render_template('Final_Prediction_Screen.html', prize=prize)
     return render_template('Error.html')
@@ -134,7 +135,7 @@ def End_Question():
             if session['AmazonMT']:
                 now = datetime.now()
                 Final_pre = request.form['Final_pre']
-                query = f"UPDATE \"main_table\" set \"final_prediction\"='%s',\"end_time\"='%s' where \"ID\"='%s'" % (
+                query = f"UPDATE \"main_table\" set \"final_prediction\"='%s',\"final_p_end\"='%s' where \"ID\"='%s'" % (
                     Final_pre, now, session['AmazonMT'])
                 dbManager.commit(query)
                 return render_template('End_Question_Screen.html')
