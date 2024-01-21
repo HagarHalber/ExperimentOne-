@@ -81,8 +81,8 @@ def Select_Explanation():
         second_selection_list = [1, 2, 3, 4, 5]
         second_selection = random.choice(second_selection_list)
         First_pre = request.form['First_pre']
-        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s' where \"ID\"='%s'" % (
-            First_pre, start_time, first_selection, second_selection, session['AmazonMT'])
+        query = f"UPDATE \"main_table\" set \"first_prediction\"='%s',\"in_time\"='%s',\"first_selection\"='%s',\"second_selection\"='%s',\"Ex_start\"='%s' where \"ID\"='%s'" % (
+            First_pre, start_time, first_selection, second_selection, start_time, session['AmazonMT'])
         dbManager.commit(query)
         query_D = f"UPDATE \"First_Duration_table\" set \"first_p_endtime\"='%s' where \"ID\"='%s'" % (
             start_time, session['AmazonMT'])
@@ -121,8 +121,8 @@ def Final_Prediction():
                 prize = 0.5
             else:
                 prize = 10
-            query = f"UPDATE \"main_table\" set \"in_time\"='%s' where \"ID\"='%s'" % (
-                now, session['AmazonMT'])
+            query = f"UPDATE \"main_table\" set \"in_time\"='%s',\"Ex_end\"='%s' where \"ID\"='%s'" % (
+                now, now, session['AmazonMT'])
             dbManager.commit(query)
             return render_template('Final_Prediction_Screen.html', prize=prize)
     return render_template('Error.html')
