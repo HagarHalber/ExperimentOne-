@@ -153,9 +153,11 @@
                <img style="size: A5" class="card-img-top" src="../static/Nvidia_Graph_Data.png">
               </div><br>
              <div class="card-body">
-             <div class="row justify-content-center">
              {% if second_selection == 1 %}
+               {% if second_selection != 4 %}
                <p class="card-text">The AI generated the following explanation for this prediction.<br> You can choose if you would like to see it.<br><strong>You can press continue without opening the explanation.</strong> </p><br>
+               {% endif %}
+               <div class="row justify-content-center">
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation1">AI Explanation</button>&nbsp;&nbsp;
                <div class="modal fade" id="explanation1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -184,7 +186,6 @@
                  </div>
                 </div>
              {% elif second_selection==2 %}
-               <p class="card-text">The AI generated the following explanation for this prediction.<br> You can choose if you would like to see it.<br><strong>You can press continue without opening the explanation.</strong> </p><br>
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation2">AI Explanation</button>&nbsp;&nbsp;
                <div class="modal fade" id="explanation2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -210,7 +211,6 @@
                  </div>
                 </div>
              {% elif second_selection==3 %}
-               <p class="card-text">The AI generated the following explanation for this prediction.<br> You can choose if you would like to see it.<br><strong>You can press continue without opening the explanation.</strong> </p><br>
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation3">AI Explanation</button>&nbsp;&nbsp;
                <div class="modal fade" id="explanation3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog " role="document">
@@ -239,7 +239,6 @@
                  </div>
                 </div>
              {% elif second_selection==4 %}
-               <p class="card-text">The AI generated the following explanation for this prediction.<br> You can choose if you would like to see it.<br><strong>You can press continue without opening the explanation.</strong> </p><br>
                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation4">AI Explanation</button>
                <div class="modal fade" id="explanation4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -266,7 +265,7 @@
                 </div>
              {% else %}
              {% endif %}
-            </div>
+           # </div>
             </div>
             <div class="row justify-content-center">
             <div class="card-footer bg-transparent">
