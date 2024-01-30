@@ -153,12 +153,12 @@
                <img style="size: A5" class="card-img-top" src="../static/Nvidia_Graph_Data.png">
               </div><br>
              <div class="card-body">
-             {% if second_selection == 1 %}
-               {% if second_selection != 4 %}
-               <p class="card-text">The AI generated the following explanation for this prediction.<br> You can choose if you would like to see it.<br><strong>You can press continue without opening the explanation.</strong> </p><br>
-               {% endif %}
-               <div class="row justify-content-center">
-               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation1">AI Explanation</button>&nbsp;&nbsp;
+             {% if second_selection != 5  %}
+               <p class="card-text">The AI generated the following explanations for this prediction.<br> You can choose which explanation you would like to see.<br><strong>You can press continue without opening any explanation.</strong> </p>
+             {% endif %}
+              {% if second_selection == 1 %}
+              <div class="row justify-content-center">
+               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation1">Long and specific</button>&nbsp;&nbsp;
                <div class="modal fade" id="explanation1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                    <div class="modal-content">
@@ -185,8 +185,10 @@
                   </div>
                  </div>
                 </div>
-             {% elif second_selection==2 %}
-               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation2">AI Explanation</button>&nbsp;&nbsp;
+               </div>
+              {% elif second_selection ==2 %}
+               <div class="row justify-content-center">
+               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation2">Short and specific</button>&nbsp;&nbsp;
                <div class="modal fade" id="explanation2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                    <div class="modal-content">
@@ -210,9 +212,11 @@
                   </div>
                  </div>
                 </div>
-             {% elif second_selection==3 %}
-               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation3">AI Explanation</button>&nbsp;&nbsp;
-               <div class="modal fade" id="explanation3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               </div>
+              {% elif second_selection == 3 %}
+               <div class="row justify-content-center">
+               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation3">Long and general</button>&nbsp;&nbsp;
+                <div class="modal fade" id="explanation3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog " role="document">
                    <div class="modal-content">
                     <div class="modal-body">
@@ -238,9 +242,11 @@
                   </div>
                  </div>
                 </div>
-             {% elif second_selection==4 %}
-               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation4">AI Explanation</button>
-               <div class="modal fade" id="explanation4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               </div>
+              {% elif second_selection == 4 %}
+               <div class="row justify-content-center">
+               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#explanation4">Short and general</button>
+                <div class="modal fade" id="explanation4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                    <div class="modal-content">
                     <div class="modal-body">
@@ -263,14 +269,14 @@
                   </div>
                  </div>
                 </div>
-             {% else %}
-             {% endif %}
-            </div>
+               </div>
+              {% else %}
+              {% endif %}
             </div>
             <div class="row justify-content-center">
             <div class="card-footer bg-transparent">
                 <form name='searchdata' id="explanation1" action="/Final_Prediction" method="post">
-                  <button type="submit" name='Next_Page' class="btn btn-outline-danger"><i class="fa fa-user"></i> Continue</button>
+                  <button type="submit" name='Next_Page' class="btn btn-outline-danger" ><i class="fa fa-user"></i> Continue</button>
                 </form>
             </div>
             </div>
