@@ -76,7 +76,7 @@ def First_Prediction():
 def Select_Explanation():
     if session['AmazonMT']:
         start_time = datetime.now()
-        first_selection_list = [2]
+        first_selection_list = [1,2]
         first_selection = random.choice(first_selection_list)
         second_selection_list = [1, 2, 3, 4, 5]
         second_selection = random.choice(second_selection_list)
@@ -118,7 +118,7 @@ def Final_Prediction():
             query_result = dbManager.fetch(query)
             mt_num = query_result[0][2]
             if mt_num == 1:
-                prize = 0.5
+                prize = 1
             else:
                 prize = 10
             query = f"UPDATE \"main_table\" set \"in_time\"='%s',\"Ex_end\"='%s' where \"ID\"='%s'" % (
